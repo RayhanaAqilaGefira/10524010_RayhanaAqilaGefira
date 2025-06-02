@@ -1,0 +1,122 @@
+<html>
+<head>
+    <title>Transaksi - Toko Online</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #ffe6f0; /* Pink muda seluruh halaman */
+        }
+        .navigasi {
+            background-color: #f8c8dc;
+        }
+        .navigasi td {
+            text-align: center;
+            padding: 10px;
+        }
+        .navigasi a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+        }
+        .konten {
+            padding: 20px;
+        }
+        .footer {
+            text-align: center;
+            background-color: #f8c8dc;
+            padding: 10px;
+        }
+    </style>
+    <script>
+        function gantiHarga() {
+            const produk = document.getElementById("produk");
+            const selectedOption = produk.options[produk.selectedIndex];
+            const harga = selectedOption.getAttribute("data-harga");
+            document.getElementById("harga").value = harga;
+            hitungTotal();
+        }
+
+        function hitungTotal() {
+            const harga = parseInt(document.getElementById("harga").value) || 0;
+            const jumlah = parseInt(document.getElementById("jumlah").value) || 0;
+            const total = harga * jumlah;
+            document.getElementById("total").value = "Rp " + total.toLocaleString("id-ID");
+        }
+
+        window.onload = function() {
+            gantiHarga(); // hitung total awal saat halaman dibuka
+        }
+    </script>
+</head>
+<body>
+    <marquee><h1>Selamat Datang di Danira Fashion</h1></marquee>
+<table border=""1" width="100%">
+    <tr>
+        <td align="center"><a href="index.html">Beranda</a></td>
+        <td align="center"><a href="produk.html">Produk</a></td>
+        <td align="center"><a href="transaksi.html">Transaksi</a></td>
+        <td align="center"><a href="tentang.html">Tentang Kami</a></td>
+    </tr>
+</table>
+<h2>Isi Data Pembelian:</h2>
+<form>
+    <table>
+        <tr>
+            <td>Nama Pembeli</td>
+            <td><input type="text" name="nama" required></td>
+        </tr>
+        <tr>
+            <td>Nama Produk</td>
+            <td>
+                <select id="produk" onchange="gantiHarga()">
+                    <option value="Baju Anak Perempuan" data-harga="100000">Baju Anak Perempuan - Rp100.000</option>
+                    <option value="Baju Anak Permpuan Merah Maroon" data-harga="150.000">Baju Anak Permpuan Merah Maroon - Rp150.000</option>
+                    <option value="Baju Anak Lengan Pendek Maroon" data-harga="200000">Baju Anak Lengan Pendek Maroon - Rp200.000</option>
+                    <option value="Baju Anak Warna Hitam" data-harga="150000">Baju Anak Warna Hitam - Rp150.000</option>
+                    <option value="Baju Anak Biru One Set" data-harga="160000">Baju Anak Biru One Set - Rp160.000</option>
+                    <option value="Baju Wanita Sweater Coklat" data-harga="240000">Baju Wanita Sweater Coklat - Rp240.000</option>
+                    <option value="Baju Wanita Kemeja Putih" data-harga="160000">Baju Wanita Kemeja Putih - Rp160.000</option>
+                    <option value="Baju Wanita Kemeja Pink" data-harga="200000">Baju Wanita Kemeja Pink - Rp200.000</option>
+                    <option value="Baju Wanita Kemeja Biru" data-harga="270000">Baju Wanita Kemeja Biru - Rp270.000</option>
+                    <option value="Baju Wanita Kaos" data-harga="250000">Baju Wanita Kaos - Rp250.000</option>
+                    <option value="Kemeja Pria Baby Blue" data-harga="240000">Kemeja Pria Baby Blue - Rp240.000</option>
+                    <option value="Kemeja Pria Biru Gradasi" data-harga="160000">Kemeja Pria Biru Gradasi - Rp160.000</option>
+                    <option value="Baju Pria Polo" data-harga="200000">Baju Pria Polo - Rp200.000</option>
+                    <option value="Kemeja Pria Kuning" data-harga="270000">Kemeja Pria Kuning - Rp270.000</option>
+                    <option value="Kemeja Pria Hijau Army" data-harga="250000">Kemeja Pria Hijau Army - Rp250.000</option>
+                    <option value="Baju Wanita Lengan Panjang" data-harga="145000">Baju Wanita Lengan Panjang - Rp145.000</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Harga Satuan</td>
+            <td><input type="text" id="harga" value="100000" readonly></td>
+        </tr>
+        <tr>
+            <td>Jumlah Beli</td>
+<td><input type="number" id="jumlah" value="1" min="1" onchange="hitungTotal()" onkeyup="hitungTotal()"></td>
+        </tr>
+        <tr>
+            <td>Total Harga</td>
+            <td><input type="text" id="total" readonly></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center"><button type="submit">Simpan Transaksi</button></td>
+        </tr>
+    </table>
+</form>
+
+<script>
+    function gantiHarga() {
+        var select = document.getElementById("produk");
+        var harga = select.options[select.selectedIndex].getAttribute("data-harga");
+        document.getElementById("harga").value = harga;
+        hitungTotal();
+        }
+</script>
+<hr>
+<footer align="center">
+    <p>&copy; 2025 Toko Online</p>
+</body>
+</html>
